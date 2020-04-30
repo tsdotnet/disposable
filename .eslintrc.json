@@ -1,41 +1,25 @@
 {
-  "env": {
-    "browser": true,
-    "es6": true,
-    "node": true
-  },
-  "extends": [
-    "standard"
-  ],
-  "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
-  },
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaVersion": 2018,
-    "sourceType": "module"
-  },
-  "plugins": [
-    "@typescript-eslint"
-  ],
-  "rules": {
-    "no-dupe-class-members": "off",
-    "no-useless-constructor": "off",
-    "no-unused-vars": "off",
-    "semi": "off",
-    "@typescript-eslint/no-dupe-class-members": "error",
-    "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/no-useless-constructor": "error",
-    "@typescript-eslint/semi": "error",
-    "no-tabs": "off",
-    "indent": [
-      "error",
-      "tab"
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": [
+        "typescript"
     ],
-    "space-before-function-paren": "off",
-    "no-inner-declarations": "off",
-    "no-redeclare": "off",
-    "one-var": "off"
-  }
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "@typescript-eslint/no-inferrable-types": "off"
+    }
 }

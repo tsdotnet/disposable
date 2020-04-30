@@ -3,12 +3,12 @@
  * Licensing: MIT
  */
 
-import IDisposable from './IDisposable';
-import IDisposableAware from './IDisposableAware';
+import Disposable from './Disposable';
+import DisposableAware from './DisposableAware';
 import ObjectDisposedException from './ObjectDisposedException';
 import DisposableBase from './DisposableBase';
 import dispose from './dispose';
 
-export { IDisposable, IDisposableAware, ObjectDisposedException, dispose, DisposableBase };
+export {Disposable, DisposableAware, ObjectDisposedException, dispose, DisposableBase};
 
 export default DisposableBase;

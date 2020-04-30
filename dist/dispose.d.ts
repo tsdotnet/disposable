@@ -2,8 +2,8 @@
  * @author electricessence / https://github.com/electricessence/
  * Licensing: MIT
  */
-import IDisposable from './IDisposable';
-export declare type DisposableItem = IDisposable | null | undefined;
+import Disposable from './Disposable';
+export declare type DisposableItem = Disposable | null | undefined;
 export declare type DisposableItemArray = DisposableItem[] | null | undefined;
 /**
  * Takes any number of disposables as arguments and attempts to dispose them.
@@ -79,5 +79,5 @@ export declare namespace dispose {
  * @param closure Function call to execute.
  * @returns {TReturn} Returns whatever the closure's return value is.
  */
-export declare function using<TDisposable extends IDisposable, TReturn>(disposable: TDisposable, closure: (disposable: TDisposable) => TReturn): TReturn;
+export declare function using<TDisposable extends Disposable, TReturn>(disposable: TDisposable, closure: (disposable: TDisposable) => TReturn): TReturn;
 export default dispose;

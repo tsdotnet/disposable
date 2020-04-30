@@ -3,8 +3,10 @@
  * Licensing: MIT
  */
 
-import IDisposable from './IDisposable';
+import Disposable from './Disposable';
 
-export default interface IDisposableAware extends IDisposable {
+export default interface DisposableAware
+	extends Disposable
+{
 	readonly wasDisposed: boolean;
 }
