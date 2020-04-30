@@ -5,7 +5,6 @@
  */
 import ObjectDisposedException from './ObjectDisposedException';
 class DisposableBase {
-    // eslint-disable-next-line no-useless-constructor
     constructor(_disposableObjectName, __finalizer) {
         this._disposableObjectName = _disposableObjectName;
         this.__finalizer = __finalizer;

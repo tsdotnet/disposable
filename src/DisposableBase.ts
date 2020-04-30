@@ -8,7 +8,6 @@ import IDisposableAware from './IDisposableAware';
 import ObjectDisposedException from './ObjectDisposedException';
 
 abstract class DisposableBase implements IDisposableAware {
-	// eslint-disable-next-line no-useless-constructor
 	protected constructor(protected _disposableObjectName: string, private readonly __finalizer?: () => void | null) {}
 
 	private __wasDisposed: boolean = false;
