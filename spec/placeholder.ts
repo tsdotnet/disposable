@@ -1,5 +1,5 @@
-describe("placeholder",()=>{
-    it("does nothing",()=>{
-        expect(true).toBeTrue();
-    })
+describe('placeholder', () => {
+	it('does nothing', () => {
+		expect(true).toBeTrue();
+	});
 });
