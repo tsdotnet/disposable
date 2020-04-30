@@ -19,7 +19,7 @@
     "build": "npm run clean && copyfiles -u 1 src/**/*.d.ts dist && tsc",
     "bump": "npm version patch",
     "lint": "eslint src/**/*.ts",
-    "prepublishOnly": "npm run lint && npm run build",
+    "precommit": "npm run lint && npm run build",
     "preversion": "npm run lint",
     "postversion": "git push && git push --tags"
   },
