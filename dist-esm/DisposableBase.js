@@ -1,11 +1,8 @@
-"use strict";
 /*!
  * @author electricessence / https://github.com/electricessence/
  * Licensing: MIT
  */
-Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
-const ObjectDisposedException_1 = tslib_1.__importDefault(require("./ObjectDisposedException"));
+import ObjectDisposedException from './ObjectDisposedException';
 class DisposableBase {
     constructor(_disposableObjectName, __finalizer) {
         this._disposableObjectName = _disposableObjectName;
@@ -41,7 +38,7 @@ class DisposableBase {
      */
     throwIfDisposed(message, objectName = this._disposableObjectName) {
         if (this.__wasDisposed)
-            throw new ObjectDisposedException_1.default(objectName);
+            throw new ObjectDisposedException(objectName);
         return true;
     }
     // Placeholder for overrides.
@@ -52,5 +49,5 @@ class DisposableBase {
      */
     _onDispose() { }
 }
-exports.default = DisposableBase;
+export default DisposableBase;
 //# sourceMappingURL=DisposableBase.js.map

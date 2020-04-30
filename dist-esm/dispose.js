@@ -1,9 +1,7 @@
-"use strict";
 /*!
  * @author electricessence / https://github.com/electricessence/
  * Licensing: MIT
  */
-Object.defineProperty(exports, "__esModule", { value: true });
 /* eslint-disable @typescript-eslint/no-use-before-define,@typescript-eslint/no-namespace,no-inner-declarations */
 /**
  * Takes any number of disposables as arguments and attempts to dispose them.
@@ -11,11 +9,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * Use 'dispose.withoutException' to automatically trap exceptions.
  * @param disposables The objects to dispose of. Can accept <any> and will ignore objects that don't have a dispose() method.
  */
-function dispose(...disposables) {
+export function dispose(...disposables) {
     // The disposables arguments array is effectively localized so it's safe.
     theseUnsafe(disposables, false);
 }
-exports.dispose = dispose;
 (function (dispose) {
     /**
      * Use this when only disposing one object to avoid creation of arrays.
@@ -94,7 +91,7 @@ exports.dispose = dispose;
         }
         these.unsafe = unsafe;
     })(these = dispose.these || (dispose.these = {}));
-})(dispose = exports.dispose || (exports.dispose = {}));
+})(dispose || (dispose = {}));
 /**
  * Just like in C# this 'using' function will ensure the passed disposable is disposed when the closure has finished.
  *
@@ -110,7 +107,7 @@ exports.dispose = dispose;
  * @param closure Function call to execute.
  * @returns {TReturn} Returns whatever the closure's return value is.
  */
-function using(disposable, closure) {
+export function using(disposable, closure) {
     try {
         return closure(disposable);
     }
@@ -118,7 +115,6 @@ function using(disposable, closure) {
         singleUnsafe(disposable, false);
     }
 }
-exports.using = using;
 /**
  * This private function makes disposing more robust for when there's no type checking.
  * If trapException is 'true' it logs any exception instead of throwing.
@@ -153,5 +149,5 @@ function deferredUnsafe(disposables, delay = 0) {
         return;
     setTimeout(theseUnsafe, delay && delay > 0 ? delay : 0, disposables, true);
 }
-exports.default = dispose;
+export default dispose;
 //# sourceMappingURL=dispose.js.map
