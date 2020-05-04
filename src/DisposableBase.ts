@@ -6,7 +6,7 @@
 import DisposableAware from './DisposableAware';
 import ObjectDisposedException from './ObjectDisposedException';
 
-abstract class DisposableBase
+export default abstract class DisposableBase
 	implements DisposableAware
 {
 	private __wasDisposed: boolean = false;
@@ -68,5 +68,3 @@ abstract class DisposableBase
 	// eslint-disable-next-line @typescript-eslint/no-empty-function
 	{}
 }
-
-export default DisposableBase;

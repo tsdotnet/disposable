@@ -3,7 +3,7 @@
  * Licensing: MIT
  */
 import ObjectDisposedException from './ObjectDisposedException';
-class DisposableBase {
+export default class DisposableBase {
     constructor(_disposableObjectName, __finalizer) {
         this._disposableObjectName = _disposableObjectName;
         this.__finalizer = __finalizer;
@@ -48,5 +48,4 @@ class DisposableBase {
      */
     _onDispose() { }
 }
-export default DisposableBase;
 //# sourceMappingURL=DisposableBase.js.map

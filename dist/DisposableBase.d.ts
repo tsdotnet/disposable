@@ -3,7 +3,7 @@
  * Licensing: MIT
  */
 import DisposableAware from './DisposableAware';
-declare abstract class DisposableBase implements DisposableAware {
+export default abstract class DisposableBase implements DisposableAware {
     protected _disposableObjectName: string;
     private readonly __finalizer?;
     private __wasDisposed;
@@ -22,4 +22,3 @@ declare abstract class DisposableBase implements DisposableAware {
      */
     protected _onDispose(): void;
 }
-export default DisposableBase;
