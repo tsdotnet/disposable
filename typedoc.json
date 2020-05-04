@@ -2,6 +2,9 @@
   "inputFiles": [
     "./src"
   ],
+  "exclude": [
+    "./src/index.ts"
+  ],
   "mode": "modules",
   "out": "docs",
   "includeVersion": true,
