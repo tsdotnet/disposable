@@ -19,7 +19,7 @@
     "clean": "rimraf dist/* && rimraf dist-esm/*",
     "build": "npm prune && npm install && npm run clean && copyfiles -u 1 src/**/*.d.ts dist && tsc && tsc -p tsconfig.esm.json",
     "bump": "npm run precommit && npm version patch && npm run docs && git commit -m \"Updated docs.\" docs && git push",
-    "docs": "rimraf docs/* && rimraf docs/.nojekyll && typedoc --mode modules --readme none --includeVersion --includeDeclarations --excludeExternals --excludeNotExported --excludePrivate --out docs src && node ./.build/create-nojekyll.js",
+    "docs": "rimraf docs/* && rimraf docs/.nojekyll && typedoc --options typedoc.json --readme none && node ./.build/create-nojekyll.js",
     "lint": "eslint src/**/*.ts",
     "precommit": "npm run lint && npm run test && npm run build && npm run validate",
     "prepublishOnly": "npm run build && npm run validate && npm run test",
