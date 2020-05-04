@@ -43,9 +43,8 @@ class DisposableBase {
     }
     // Placeholder for overrides.
     /**
-     * Is called when this object is disposed.  Should not be called directly.
+     * Is called when this object is disposed.  Should NOT be called directly.
      * Override this method to handle disposal.
-     * @private
      */
     _onDispose() { }
 }

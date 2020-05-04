@@ -61,9 +61,8 @@ abstract class DisposableBase
 
 	// Placeholder for overrides.
 	/**
-	 * Is called when this object is disposed.  Should not be called directly.
+	 * Is called when this object is disposed.  Should NOT be called directly.
 	 * Override this method to handle disposal.
-	 * @private
 	 */
 	protected _onDispose (): void
 	// eslint-disable-next-line @typescript-eslint/no-empty-function
