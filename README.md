@@ -5,3 +5,6 @@
 [![npm version](https://img.shields.io/npm/v/@tsdotnet/disposable.svg?style=flat-square)](https://www.npmjs.com/package/@tsdotnet/disposable)
 
 A disposable base class and minimal set of interfaces to properly implement an object disposal pattern.
+
+## Docs
+[tsdotnet.github.io/disposable](https://tsdotnet.github.io/disposable/)
