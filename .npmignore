@@ -1,10 +1,10 @@
 node_modules
-.build
-.idea
-.vs
+.*
 bin
 obj
 *.user
 /spec
 /src
 /docs
+typedoc.json
+tsconfig.*
