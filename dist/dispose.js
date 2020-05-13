@@ -4,6 +4,7 @@
  * Licensing: MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.using = exports.dispose = void 0;
 /* eslint-disable @typescript-eslint/no-use-before-define,@typescript-eslint/no-namespace,no-inner-declarations */
 /**
  * Takes any number of disposables as arguments and attempts to dispose them.
