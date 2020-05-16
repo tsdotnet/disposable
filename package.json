@@ -53,5 +53,8 @@
     "ts-node": "^8.10.1",
     "typedoc": "^0.17.6",
     "typescript": "^3.9.2"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
   }
 }
