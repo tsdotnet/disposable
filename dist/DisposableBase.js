@@ -9,17 +9,17 @@ const ObjectDisposedException_1 = tslib_1.__importDefault(require("./ObjectDispo
 class DisposableBase {
     constructor(disposableObjectName, finalizer) {
         this._disposableObjectName = disposableObjectName;
-        this.__state = {
+        this.__disposableState = {
             disposed: false,
             finalizer: finalizer || undefined
         };
     }
     get wasDisposed() {
-        return this.__state.disposed;
+        return this.__disposableState.disposed;
     }
     // NOTE: Do not override this method.  Override _onDispose instead.
     dispose() {
-        const state = this.__state;
+        const state = this.__disposableState;
         if (!state.disposed) {
             // Preemptively set wasDisposed in order to prevent repeated disposing.
             // NOTE: in true multi-threaded scenarios, this would need to be synchronized.
@@ -43,7 +43,7 @@ class DisposableBase {
      * @param objectName Optional object name override.
      */
     throwIfDisposed(message, objectName = this._disposableObjectName) {
-        if (this.__state.disposed)
+        if (this.__disposableState.disposed)
             throw new ObjectDisposedException_1.default(objectName);
         return true;
     }

@@ -11,14 +11,14 @@ export default abstract class DisposableBase
 {
 	protected _disposableObjectName: string;
 	// Using an object allows for sub classes to 'freeze' themselves without causing and error when disposing.
-	private readonly __state: { disposed: boolean, finalizer?: () => void };
+	private readonly __disposableState: { disposed: boolean, finalizer?: () => void };
 
 	protected constructor (
 		disposableObjectName: string,
 		finalizer?: () => void | null)
 	{
 		this._disposableObjectName = disposableObjectName;
-		this.__state = {
+		this.__disposableState = {
 			disposed: false,
 			finalizer: finalizer || undefined
 		};
@@ -26,13 +26,13 @@ export default abstract class DisposableBase
 
 	get wasDisposed (): boolean
 	{
-		return this.__state.disposed;
+		return this.__disposableState.disposed;
 	}
 
 	// NOTE: Do not override this method.  Override _onDispose instead.
 	dispose (): void
 	{
-		const state = this.__state;
+		const state = this.__disposableState;
 		if(!state.disposed)
 		{
 			// Preemptively set wasDisposed in order to prevent repeated disposing.
@@ -62,7 +62,7 @@ export default abstract class DisposableBase
 		message?: string,
 		objectName: string = this._disposableObjectName): true | never
 	{
-		if(this.__state.disposed) throw new ObjectDisposedException(objectName);
+		if(this.__disposableState.disposed) throw new ObjectDisposedException(objectName);
 		return true;
 	}
 
