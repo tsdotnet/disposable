@@ -9,39 +9,46 @@ import ObjectDisposedException from './ObjectDisposedException';
 export default abstract class DisposableBase
 	implements DisposableAware
 {
-	private __wasDisposed: boolean = false;
+	protected _disposableObjectName: string;
+	// Using an object allows for sub classes to 'freeze' themselves without causing and error when disposing.
+	private readonly __state: { disposed: boolean, finalizer?: () => void };
 
 	protected constructor (
-		protected _disposableObjectName: string,
-		private readonly __finalizer?: () => void | null)
-	{}
+		disposableObjectName: string,
+		finalizer?: () => void | null)
+	{
+		this._disposableObjectName = disposableObjectName;
+		this.__state = {
+			disposed: false,
+			finalizer: finalizer || undefined
+		};
+	}
 
 	get wasDisposed (): boolean
 	{
-		return this.__wasDisposed;
+		return this.__state.disposed;
 	}
 
 	// NOTE: Do not override this method.  Override _onDispose instead.
 	dispose (): void
 	{
-		if(!this.__wasDisposed)
+		const state = this.__state;
+		if(!state.disposed)
 		{
 			// Preemptively set wasDisposed in order to prevent repeated disposing.
 			// NOTE: in true multi-threaded scenarios, this would need to be synchronized.
-			this.__wasDisposed = true;
+			state.disposed = true;
+			const finalizer = state.finalizer;
+			state.finalizer = undefined;
+			delete state.finalizer;
+			Object.freeze(state);
 			try
 			{
 				this._onDispose(); // Protected override.
 			}
 			finally
 			{
-				if(this.__finalizer)
-				{
-					// Private finalizer...
-					this.__finalizer();
-					// eslint-disable-next-line @typescript-eslint/no-explicit-any
-					(this as any).__finalizer = undefined;
-				}
+				if(finalizer) finalizer();
 			}
 		}
 	}
@@ -55,7 +62,7 @@ export default abstract class DisposableBase
 		message?: string,
 		objectName: string = this._disposableObjectName): true | never
 	{
-		if(this.__wasDisposed) throw new ObjectDisposedException(objectName);
+		if(this.__state.disposed) throw new ObjectDisposedException(objectName);
 		return true;
 	}
 

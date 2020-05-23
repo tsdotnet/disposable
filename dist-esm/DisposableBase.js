@@ -4,30 +4,33 @@
  */
 import ObjectDisposedException from './ObjectDisposedException';
 export default class DisposableBase {
-    constructor(_disposableObjectName, __finalizer) {
-        this._disposableObjectName = _disposableObjectName;
-        this.__finalizer = __finalizer;
-        this.__wasDisposed = false;
+    constructor(disposableObjectName, finalizer) {
+        this._disposableObjectName = disposableObjectName;
+        this.__state = {
+            disposed: false,
+            finalizer: finalizer || undefined
+        };
     }
     get wasDisposed() {
-        return this.__wasDisposed;
+        return this.__state.disposed;
     }
     // NOTE: Do not override this method.  Override _onDispose instead.
     dispose() {
-        if (!this.__wasDisposed) {
+        const state = this.__state;
+        if (!state.disposed) {
             // Preemptively set wasDisposed in order to prevent repeated disposing.
             // NOTE: in true multi-threaded scenarios, this would need to be synchronized.
-            this.__wasDisposed = true;
+            state.disposed = true;
+            const finalizer = state.finalizer;
+            state.finalizer = undefined;
+            delete state.finalizer;
+            Object.freeze(state);
             try {
                 this._onDispose(); // Protected override.
             }
             finally {
-                if (this.__finalizer) {
-                    // Private finalizer...
-                    this.__finalizer();
-                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                    this.__finalizer = undefined;
-                }
+                if (finalizer)
+                    finalizer();
             }
         }
     }
@@ -37,7 +40,7 @@ export default class DisposableBase {
      * @param objectName Optional object name override.
      */
     throwIfDisposed(message, objectName = this._disposableObjectName) {
-        if (this.__wasDisposed)
+        if (this.__state.disposed)
             throw new ObjectDisposedException(objectName);
         return true;
     }

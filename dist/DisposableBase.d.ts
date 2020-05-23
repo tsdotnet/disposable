@@ -4,10 +4,9 @@
  */
 import DisposableAware from './DisposableAware';
 export default abstract class DisposableBase implements DisposableAware {
+    private readonly __state;
     protected _disposableObjectName: string;
-    private readonly __finalizer?;
-    private __wasDisposed;
-    protected constructor(_disposableObjectName: string, __finalizer?: (() => void | null) | undefined);
+    protected constructor(disposableObjectName: string, finalizer?: () => void | null);
     get wasDisposed(): boolean;
     dispose(): void;
     /**
