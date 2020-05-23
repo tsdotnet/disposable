@@ -1,6 +1,6 @@
 /*!
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 import DisposableAware from './DisposableAware';
 export default class ObjectDisposedException extends Error {
