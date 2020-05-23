@@ -1,13 +1,13 @@
 /*!
  * @author electricessence / https://github.com/electricessence/
- * Licensing: MIT
+ * @license MIT
  */
 
 import Disposable from './Disposable';
 import DisposableAware from './DisposableAware';
-import ObjectDisposedException from './ObjectDisposedException';
 import DisposableBase from './DisposableBase';
 import dispose from './dispose';
+import ObjectDisposedException from './ObjectDisposedException';
 
 export {Disposable, DisposableAware, ObjectDisposedException, dispose, DisposableBase};
 
