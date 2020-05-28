@@ -9,6 +9,10 @@ import ObjectDisposedException from './ObjectDisposedException';
 export default abstract class DisposableBase
 	implements DisposableAware
 {
+	/**
+	 * @private
+	 * @ingore
+	 */
 	protected _disposableObjectName: string;
 	// Using an object allows for sub classes to 'freeze' themselves without causing and error when disposing.
 	private readonly __disposableState: { disposed: boolean, finalizer?: () => void };
