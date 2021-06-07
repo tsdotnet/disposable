@@ -6,7 +6,7 @@ import DisposableAware from './DisposableAware';
 export default abstract class DisposableBase implements DisposableAware {
     /**
      * @private
-     * @ingore
+     * @ignore
      */
     protected _disposableObjectName: string;
     private readonly __disposableState;

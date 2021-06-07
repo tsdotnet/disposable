@@ -11,7 +11,7 @@ export default abstract class DisposableBase
 {
 	/**
 	 * @private
-	 * @ingore
+	 * @ignore
 	 */
 	protected _disposableObjectName: string;
 	// Using an object allows for sub classes to 'freeze' themselves without causing and error when disposing.
