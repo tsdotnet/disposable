@@ -7,7 +7,7 @@ import DisposableAware from './DisposableAware';
 import ObjectDisposedException from './ObjectDisposedException';
 
 export default abstract class DisposableBase
-	implements DisposableAware
+implements DisposableAware
 {
 	/**
 	 * @private
