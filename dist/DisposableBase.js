@@ -5,7 +5,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const ObjectDisposedException_1 = (0, tslib_1.__importDefault)(require("./ObjectDisposedException"));
+const ObjectDisposedException_1 = tslib_1.__importDefault(require("./ObjectDisposedException"));
 class DisposableBase {
     constructor(disposableObjectName, finalizer) {
         this._disposableObjectName = disposableObjectName;

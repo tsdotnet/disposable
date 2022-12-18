@@ -3,8 +3,8 @@
  * @license MIT
  */
 import Disposable from './Disposable';
-export declare type DisposableItem = Disposable | null | undefined;
-export declare type DisposableItemArray = DisposableItem[] | null | undefined;
+export type DisposableItem = Disposable | null | undefined;
+export type DisposableItemArray = DisposableItem[] | null | undefined;
 /**
  * Takes any number of disposables as arguments and attempts to dispose them.
  * Any exceptions thrown within a dispose are not trapped.
