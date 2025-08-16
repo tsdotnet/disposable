@@ -1,16 +1,12 @@
+"use strict";
 /*!
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
  */
-import ObjectDisposedException from './ObjectDisposedException';
-export default class DisposableBase {
-    /**
-     * @private
-     * @ignore
-     */
-    _disposableObjectName;
-    // Using an object allows for sub classes to 'freeze' themselves without causing and error when disposing.
-    __disposableState;
+Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
+const ObjectDisposedException_1 = tslib_1.__importDefault(require("./ObjectDisposedException"));
+class DisposableBase {
     constructor(disposableObjectName, finalizer) {
         this._disposableObjectName = disposableObjectName;
         this.__disposableState = {
@@ -48,7 +44,7 @@ export default class DisposableBase {
      */
     throwIfDisposed(message, objectName = this._disposableObjectName) {
         if (this.__disposableState.disposed)
-            throw new ObjectDisposedException(objectName);
+            throw new ObjectDisposedException_1.default(objectName);
         return true;
     }
     // Placeholder for overrides.
@@ -58,4 +54,5 @@ export default class DisposableBase {
      */
     _onDispose() { }
 }
+exports.default = DisposableBase;
 //# sourceMappingURL=DisposableBase.js.map

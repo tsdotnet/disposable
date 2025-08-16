@@ -1,9 +1,10 @@
+"use strict";
 /*!
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
  */
-export default class ObjectDisposedException extends Error {
-    objectName;
+Object.defineProperty(exports, "__esModule", { value: true });
+class ObjectDisposedException extends Error {
     constructor(objectName, message) {
         super(message);
         this.objectName = objectName;
@@ -14,4 +15,5 @@ export default class ObjectDisposedException extends Error {
         return true;
     }
 }
+exports.default = ObjectDisposedException;
 //# sourceMappingURL=ObjectDisposedException.js.map

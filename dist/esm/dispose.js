@@ -1,7 +1,11 @@
+"use strict";
 /*!
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
  */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.dispose = dispose;
+exports.using = using;
 /* eslint-disable @typescript-eslint/no-namespace */
 /**
  * Takes any number of disposables as arguments and attempts to dispose them.
@@ -9,7 +13,7 @@
  * Use 'dispose.withoutException' to automatically trap exceptions.
  * @param disposables The objects to dispose of. Can accept <any> and will ignore objects that don't have a dispose() method.
  */
-export function dispose(...disposables) {
+function dispose(...disposables) {
     // The disposables arguments array is effectively localized so it's safe.
     theseUnsafe(disposables, false);
 }
@@ -91,7 +95,7 @@ export function dispose(...disposables) {
         }
         these.unsafe = unsafe;
     })(these = dispose.these || (dispose.these = {}));
-})(dispose || (dispose = {}));
+})(dispose || (exports.dispose = dispose = {}));
 /**
  * Just like in C# this 'using' function will ensure the passed disposable is disposed when the closure has finished.
  *
@@ -107,7 +111,7 @@ export function dispose(...disposables) {
  * @param closure Function call to execute.
  * @returns {TReturn} Returns whatever the closure's return value is.
  */
-export function using(disposable, closure) {
+function using(disposable, closure) {
     try {
         return closure(disposable);
     }
@@ -149,5 +153,5 @@ function deferredUnsafe(disposables, delay = 0) {
         return;
     setTimeout(theseUnsafe, delay && delay > 0 ? delay : 0, disposables, true);
 }
-export default dispose;
+exports.default = dispose;
 //# sourceMappingURL=dispose.js.map
