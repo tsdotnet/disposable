@@ -15,8 +15,7 @@
       "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.js",
       "types": "./dist/index.d.ts"
-    },
-    "./dist/*": "./dist/*"
+    }
   },
   "keywords": [
     "dispose",
