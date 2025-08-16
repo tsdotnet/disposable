@@ -45,20 +45,20 @@
   },
   "homepage": "https://github.com/tsdotnet/disposable#readme",
   "devDependencies": {
+    "@eslint/js": "^9.33.0",
     "@types/chai": "^5.2.2",
     "@types/mocha": "^10.0.10",
     "@types/node": "^24.3.0",
     "chai": "^5.2.1",
-    "concurrently": "^8.2.2",
+    "concurrently": "^9.2.0",
     "copyfiles": "^2.4.1",
     "eslint": "^9.33.0",
-    "@eslint/js": "^9.33.0",
-    "typescript-eslint": "^8.39.1",
     "mocha": "^11.7.1",
     "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
     "typedoc": "^0.28.10",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.39.1"
   },
   "dependencies": {
     "tslib": "^2.4.1"
