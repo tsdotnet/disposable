@@ -75,7 +75,5 @@ implements DisposableAware
 	 * Is called when this object is disposed.  Should NOT be called directly.
 	 * Override this method to handle disposal.
 	 */
-	protected _onDispose (): void
-	// eslint-disable-next-line @typescript-eslint/no-empty-function
-	{}
+	protected _onDispose (): void {}
 }

@@ -9,7 +9,7 @@ import Disposable from './Disposable';
 export type DisposableItem = Disposable | null | undefined;
 export type DisposableItemArray = DisposableItem[] | null | undefined;
 
-/* eslint-disable @typescript-eslint/no-use-before-define,@typescript-eslint/no-namespace,no-inner-declarations */
+/* eslint-disable @typescript-eslint/no-namespace */
 
 /**
  * Takes any number of disposables as arguments and attempts to dispose them.

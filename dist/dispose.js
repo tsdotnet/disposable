@@ -4,8 +4,9 @@
  * @license MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.using = exports.dispose = void 0;
-/* eslint-disable @typescript-eslint/no-use-before-define,@typescript-eslint/no-namespace,no-inner-declarations */
+exports.dispose = dispose;
+exports.using = using;
+/* eslint-disable @typescript-eslint/no-namespace */
 /**
  * Takes any number of disposables as arguments and attempts to dispose them.
  * Any exceptions thrown within a dispose are not trapped.
@@ -16,7 +17,6 @@ function dispose(...disposables) {
     // The disposables arguments array is effectively localized so it's safe.
     theseUnsafe(disposables, false);
 }
-exports.dispose = dispose;
 (function (dispose) {
     /**
      * Use this when only disposing one object to avoid creation of arrays.
@@ -95,7 +95,7 @@ exports.dispose = dispose;
         }
         these.unsafe = unsafe;
     })(these = dispose.these || (dispose.these = {}));
-})(dispose = exports.dispose || (exports.dispose = {}));
+})(dispose || (exports.dispose = dispose = {}));
 /**
  * Just like in C# this 'using' function will ensure the passed disposable is disposed when the closure has finished.
  *
@@ -119,7 +119,6 @@ function using(disposable, closure) {
         singleUnsafe(disposable, false);
     }
 }
-exports.using = using;
 /**
  * This private function makes disposing more robust for when there's no type checking.
  * If trapException is 'true' it logs any exception instead of throwing.

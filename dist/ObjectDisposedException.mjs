@@ -3,6 +3,7 @@
  * @license MIT
  */
 export default class ObjectDisposedException extends Error {
+    objectName;
     constructor(objectName, message) {
         super(message);
         this.objectName = objectName;

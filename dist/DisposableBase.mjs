@@ -4,6 +4,13 @@
  */
 import ObjectDisposedException from './ObjectDisposedException';
 export default class DisposableBase {
+    /**
+     * @private
+     * @ignore
+     */
+    _disposableObjectName;
+    // Using an object allows for sub classes to 'freeze' themselves without causing and error when disposing.
+    __disposableState;
     constructor(disposableObjectName, finalizer) {
         this._disposableObjectName = disposableObjectName;
         this.__disposableState = {

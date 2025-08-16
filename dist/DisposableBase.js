@@ -7,6 +7,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const ObjectDisposedException_1 = tslib_1.__importDefault(require("./ObjectDisposedException"));
 class DisposableBase {
+    /**
+     * @private
+     * @ignore
+     */
+    _disposableObjectName;
+    // Using an object allows for sub classes to 'freeze' themselves without causing and error when disposing.
+    __disposableState;
     constructor(disposableObjectName, finalizer) {
         this._disposableObjectName = disposableObjectName;
         this.__disposableState = {

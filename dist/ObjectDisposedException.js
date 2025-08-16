@@ -5,6 +5,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 class ObjectDisposedException extends Error {
+    objectName;
     constructor(objectName, message) {
         super(message);
         this.objectName = objectName;

@@ -2,7 +2,7 @@
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
  */
-/* eslint-disable @typescript-eslint/no-use-before-define,@typescript-eslint/no-namespace,no-inner-declarations */
+/* eslint-disable @typescript-eslint/no-namespace */
 /**
  * Takes any number of disposables as arguments and attempts to dispose them.
  * Any exceptions thrown within a dispose are not trapped.
