@@ -26,7 +26,7 @@
     "build:types": "cpy \"src/**/*.d.ts\" dist/types --parents && tsc -p tsconfig.types.json",
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:cjs": "tsc -p tsconfig.cjs.json",
-    "build": "pnpm clean && pnpm build:types && pnpm build:esm && pnpm build:cjs",
+  "build": "pnpm clean && pnpm build:types && pnpm build:esm && pnpm build:cjs",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src/**/*.ts",
@@ -35,7 +35,7 @@
     "precommit": "pnpm build && pnpm test && pnpm lint && git status -s",
     "preversion": "pnpm lint && pnpm test",
     "postversion": "git push && git push --tags && pnpm run docs && git add -A && git commit -m \"Updated docs.\" docs && git push",
-    "prepublishOnly": "pnpm build && pnpm typecheck && pnpm test && pnpm lint"
+    "prepublishOnly": "pnpm build && pnpm test && pnpm lint"
   },
   "repository": {
     "type": "git",
