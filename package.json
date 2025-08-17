@@ -1,6 +1,6 @@
 {
   "name": "@tsdotnet/disposable",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "A disposable base class and minimal set of interfaces to properly implement an object disposal pattern.",
   "author": "electricessence",
   "license": "MIT",
@@ -26,7 +26,7 @@
     "build:types": "cpy \"src/**/*.d.ts\" dist/types --parents && tsc -p tsconfig.types.json",
     "build:esm": "tsc -p tsconfig.esm.json",
     "build:cjs": "tsc -p tsconfig.cjs.json",
-  "build": "pnpm clean && pnpm build:types && pnpm build:esm && pnpm build:cjs",
+    "build": "pnpm clean && pnpm build:types && pnpm build:esm && pnpm build:cjs",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src/**/*.ts",
