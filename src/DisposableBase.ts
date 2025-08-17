@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import DisposableAware from './DisposableAware';
+import type DisposableAware from './DisposableAware';
 import ObjectDisposedException from './ObjectDisposedException';
 
 export default abstract class DisposableBase
@@ -24,7 +24,7 @@ implements DisposableAware
 		this._disposableObjectName = disposableObjectName;
 		this.__disposableState = {
 			disposed: false,
-			finalizer: finalizer || undefined
+			...(finalizer && { finalizer })
 		};
 	}
 
@@ -43,7 +43,6 @@ implements DisposableAware
 			// NOTE: in true multi-threaded scenarios, this would need to be synchronized.
 			state.disposed = true;
 			const finalizer = state.finalizer;
-			state.finalizer = undefined;
 			delete state.finalizer;
 			Object.freeze(state);
 			try

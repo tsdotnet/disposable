@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import Disposable from './Disposable';
+import type Disposable from './Disposable';
 
 // Allows for more flexible parameters.
 export type DisposableItem = Disposable | null | undefined;

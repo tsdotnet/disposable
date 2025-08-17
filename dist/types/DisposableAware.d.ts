@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import Disposable from './Disposable';
+import type Disposable from './Disposable';
 
 export default interface DisposableAware
 	extends Disposable

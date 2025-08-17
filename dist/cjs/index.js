@@ -12,5 +12,4 @@ const dispose_1 = tslib_1.__importDefault(require("./dispose"));
 exports.dispose = dispose_1.default;
 const ObjectDisposedException_1 = tslib_1.__importDefault(require("./ObjectDisposedException"));
 exports.ObjectDisposedException = ObjectDisposedException_1.default;
-exports.default = DisposableBase_1.default;
 //# sourceMappingURL=index.js.map

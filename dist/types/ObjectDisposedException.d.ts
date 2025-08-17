@@ -2,7 +2,7 @@
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
  */
-import DisposableAware from './DisposableAware';
+import type DisposableAware from './DisposableAware';
 export default class ObjectDisposedException extends Error {
     readonly objectName: string;
     constructor(objectName: string, message?: string);
