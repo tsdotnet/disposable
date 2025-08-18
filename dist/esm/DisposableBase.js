@@ -1,9 +1,10 @@
+import ObjectDisposedException from './ObjectDisposedException.js';
+
 /*!
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
  */
-import ObjectDisposedException from './ObjectDisposedException';
-export default class DisposableBase {
+class DisposableBase {
     _disposableObjectName;
     __disposableState;
     constructor(disposableObjectName, finalizer) {
@@ -39,4 +40,6 @@ export default class DisposableBase {
     }
     _onDispose() { }
 }
+
+export { DisposableBase as default };
 //# sourceMappingURL=DisposableBase.js.map

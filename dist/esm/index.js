@@ -1,9 +1,4 @@
-/*!
- * @author electricessence / https://github.com/electricessence/
- * @license MIT
- */
-import DisposableBase from './DisposableBase';
-import dispose from './dispose';
-import ObjectDisposedException from './ObjectDisposedException';
-export { ObjectDisposedException, dispose, DisposableBase };
+export { default as DisposableBase } from './DisposableBase.js';
+export { default as dispose } from './dispose.js';
+export { default as ObjectDisposedException } from './ObjectDisposedException.js';
 //# sourceMappingURL=index.js.map

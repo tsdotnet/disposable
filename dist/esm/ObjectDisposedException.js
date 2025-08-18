@@ -2,7 +2,7 @@
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
  */
-export default class ObjectDisposedException extends Error {
+class ObjectDisposedException extends Error {
     objectName;
     constructor(objectName, message) {
         super(message);
@@ -14,4 +14,6 @@ export default class ObjectDisposedException extends Error {
         return true;
     }
 }
+
+export { ObjectDisposedException as default };
 //# sourceMappingURL=ObjectDisposedException.js.map

@@ -2,7 +2,7 @@
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
  */
-export function dispose(...disposables) {
+function dispose(...disposables) {
     theseUnsafe(disposables, false);
 }
 (function (dispose) {
@@ -42,14 +42,6 @@ export function dispose(...disposables) {
         these.unsafe = unsafe;
     })(these = dispose.these || (dispose.these = {}));
 })(dispose || (dispose = {}));
-export function using(disposable, closure) {
-    try {
-        return closure(disposable);
-    }
-    finally {
-        singleUnsafe(disposable, false);
-    }
-}
 function singleUnsafe(disposable, trapException) {
     if (disposable && typeof disposable === 'object') {
         if (typeof disposable.dispose !== 'function')
@@ -77,5 +69,7 @@ function deferredUnsafe(disposables, delay = 0) {
         return;
     setTimeout(theseUnsafe, delay && delay > 0 ? delay : 0, disposables, true);
 }
-export default dispose;
+var dispose$1 = dispose;
+
+export { dispose$1 as default, dispose };
 //# sourceMappingURL=dispose.js.map

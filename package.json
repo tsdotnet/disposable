@@ -24,7 +24,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "build:types": "cpy \"src/**/*.d.ts\" dist/types --parents && tsc -p tsconfig.types.json",
-    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:esm": "rollup -c rollup.config.js",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "build": "pnpm clean && pnpm build:types && pnpm build:esm && pnpm build:cjs",
     "test": "vitest run",
@@ -47,10 +47,13 @@
   "homepage": "https://github.com/tsdotnet/disposable#readme",
   "devDependencies": {
     "@eslint/js": "^9.33.0",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-typescript": "^12.1.4",
     "@types/node": "^24.3.0",
     "cpy-cli": "^6.0.0",
     "eslint": "^9.33.0",
     "rimraf": "^6.0.1",
+    "rollup": "^4.46.2",
     "typedoc": "^0.28.10",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.39.1",
