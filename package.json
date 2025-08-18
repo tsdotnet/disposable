@@ -53,10 +53,10 @@
     "cpy-cli": "^6.0.0",
     "eslint": "^9.33.0",
     "rimraf": "^6.0.1",
-    "rollup": "^4.46.2",
+    "rollup": "^4.46.3",
     "typedoc": "^0.28.10",
     "typescript": "^5.9.2",
-    "typescript-eslint": "^8.39.1",
+    "typescript-eslint": "^8.40.0",
     "vitest": "^3.2.4"
   },
   "dependencies": {
