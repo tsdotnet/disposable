@@ -1,6 +1,6 @@
 {
   "name": "@tsdotnet/disposable",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A disposable base class and minimal set of interfaces to properly implement an object disposal pattern.",
   "author": "electricessence",
   "license": "MIT",
