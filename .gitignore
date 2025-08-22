@@ -7,3 +7,4 @@ node_modules
 
 #using pnpm instead of npm
 package-lock.json
+coverage
