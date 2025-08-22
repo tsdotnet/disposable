@@ -13,12 +13,12 @@ import { type DisposeStateValue } from './DisposeState';
 import ObjectDisposedException from './ObjectDisposedException';
 
 export {
-  Disposable,
-  AsyncDisposable,
-  DisposableAware,
-  ObjectDisposedException,
-  DisposeStateValue,
-  dispose,
-  DisposableBase,
-  AsyncDisposableBase
+	Disposable,
+	AsyncDisposable,
+	DisposableAware,
+	ObjectDisposedException,
+	DisposeStateValue,
+	dispose,
+	DisposableBase,
+	AsyncDisposableBase
 };
