@@ -5,8 +5,9 @@
 class ObjectDisposedException extends Error {
     objectName;
     constructor(objectName, message) {
-        super(message);
+        super(message ?? `Object '${objectName}' has been disposed and cannot be used.`);
         this.objectName = objectName;
+        this.name = 'ObjectDisposedException';
     }
     static throwIfDisposed(disposable, objectName, message) {
         if (disposable.wasDisposed)

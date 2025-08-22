@@ -63,7 +63,9 @@ function singleUnsafe(disposable, trapException) {
                 disposable.dispose();
             }
             catch (ex) {
-                console.error(ex);
+                if (typeof console !== 'undefined' && typeof console.error === 'function') {
+                    console.error('Error during disposal:', ex);
+                }
             }
         }
         else

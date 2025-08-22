@@ -4,8 +4,10 @@
  * @license MIT
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DisposableBase = exports.dispose = exports.ObjectDisposedException = void 0;
+exports.AsyncDisposableBase = exports.DisposableBase = exports.dispose = exports.ObjectDisposedException = void 0;
 const tslib_1 = require("tslib");
+const AsyncDisposableBase_1 = tslib_1.__importDefault(require("./AsyncDisposableBase"));
+exports.AsyncDisposableBase = AsyncDisposableBase_1.default;
 const DisposableBase_1 = tslib_1.__importDefault(require("./DisposableBase"));
 exports.DisposableBase = DisposableBase_1.default;
 const dispose_1 = tslib_1.__importDefault(require("./dispose"));

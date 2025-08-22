@@ -6,26 +6,36 @@
 import Disposable from './Disposable';
 import DisposableStateBase from './DisposableStateBase';
 
+/**
+ * Complete disposable implementation with state tracking and disposal lifecycle.
+ * Extends DisposableStateBase and implements Disposable.
+ */
 export default abstract class DisposableBase
 	extends DisposableStateBase implements Disposable {
 
+	/**
+	 * @param finalizer Optional callback executed after disposal.
+	 * @protected
+	 */
 	protected constructor(
 		finalizer?: () => void | null) {
 		super(finalizer);
 	}
 
-	// NOTE: Do not override this method.  Override _onDispose instead.
+	/**
+	 * Disposes the object. Idempotent - safe to call multiple times.
+	 * Do not override - implement _onDispose() instead.
+	 */
 	dispose(): void {
 		if (!this._startDispose()) return;
 		try { this._onDispose(); }
 		finally { this._finishDispose(); }
 	}
 
-
-	// Placeholder for overrides.
 	/**
-	 * Is called when this object is disposed.  Should NOT be called directly.
-	 * Override this method to handle disposal.
+	 * Override this method to implement disposal logic.
+	 * Called once during disposal process.
+	 * @protected
 	 */
 	protected _onDispose(): void { }
 }

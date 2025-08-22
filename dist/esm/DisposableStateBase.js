@@ -16,6 +16,9 @@ class DisposableStateBase {
             ...(finalizer && { finalizer })
         };
     }
+    get disposeState() {
+        return this.__disposeState.state;
+    }
     get wasDisposed() {
         const state = this.__disposeState.state;
         return state != ALIVE && state != DISPOSE_CALLED;

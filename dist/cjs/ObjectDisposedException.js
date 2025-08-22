@@ -6,8 +6,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 class ObjectDisposedException extends Error {
     constructor(objectName, message) {
-        super(message);
+        super(message !== null && message !== void 0 ? message : `Object '${objectName}' has been disposed and cannot be used.`);
         this.objectName = objectName;
+        this.name = 'ObjectDisposedException';
     }
     static throwIfDisposed(disposable, objectName, message) {
         if (disposable.wasDisposed)
