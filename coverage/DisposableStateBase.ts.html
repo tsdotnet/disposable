@@ -299,97 +299,97 @@ const DISPOSED = DisposeState.Disposed;
  * Abstract base class for objects with disposal state tracking.
  */
 export default abstract class DisposableStateBase
-  implements DisposableAware {
+implements DisposableAware {
 &nbsp;
-  /**
+	/**
    * Internal disposal state and optional finalizer.
    * @private
    */
-  private readonly __disposeState: { state: DisposeState, finalizer?: () =&gt; void };
+	private readonly __disposeState: { state: DisposeState, finalizer?: () =&gt; void };
 &nbsp;
-  /**
+	/**
    * @param finalizer Optional callback executed after disposal completes.
    * @protected
    */
-  protected constructor(
-    finalizer?: () =&gt; void | null) {
-    this.__disposeState = {
-      state: DisposeState.Alive,
-      ...(finalizer &amp;&amp; { finalizer })
-    };
-  }
+	protected constructor(
+		finalizer?: () =&gt; void | null) {
+		this.__disposeState = {
+			state: DisposeState.Alive,
+			...(finalizer &amp;&amp; { finalizer })
+		};
+	}
 &nbsp;
-  /**
+	/**
    * Current disposal state.
    */
-<span class="fstat-no" title="function not covered" >  protected get disposeState(): DisposeStateValue {</span>
-<span class="cstat-no" title="statement not covered" >    return this.__disposeState.state;</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
+<span class="fstat-no" title="function not covered" >	protected get disposeState(): DisposeStateValue {</span>
+<span class="cstat-no" title="statement not covered" >		return this.__disposeState.state;</span>
+<span class="cstat-no" title="statement not covered" >	}</span>
 &nbsp;
-  /**
+	/**
    * True if object is disposed or disposing.
    */
-  get wasDisposed(): boolean {
-    const state = this.__disposeState.state;
-    return state != ALIVE &amp;&amp; state != DISPOSE_CALLED;
-  }
+	get wasDisposed(): boolean {
+		const state = this.__disposeState.state;
+		return state != ALIVE &amp;&amp; state != DISPOSE_CALLED;
+	}
 &nbsp;
-  /**
+	/**
    * Throws ObjectDisposedException if object is disposed.
    * @param strict When true, throws if not in Alive state.
    * @protected
    */
-  protected assertIsAlive(strict: boolean = false): boolean {
-    const state = this.__disposeState.state;
-    if (strict ? state !== ALIVE : this.wasDisposed) {
-      throw new ObjectDisposedException(this.constructor.name);
-    }
-    return true;
-  }
+	protected assertIsAlive(strict: boolean = false): boolean {
+		const state = this.__disposeState.state;
+		if (strict ? state !== ALIVE : this.wasDisposed) {
+			throw new ObjectDisposedException(this.constructor.name);
+		}
+		return true;
+	}
 &nbsp;
-  /**
+	/**
    * Called before disposal starts. Override in derived classes.
    * @protected
    */
-  protected _onBeforeDispose(): void { }
-  /**
+	protected _onBeforeDispose(): void { }
+	/**
    * Initiates disposal process. Returns false if already disposed.
    * @protected
    */
-  protected _startDispose(): boolean {
-    // This check will guarantee that disposal only happens once, and only one thread is responsible for disposal.
-    if (this.__disposeState.state !== ALIVE) {
-      return false;
-    }
+	protected _startDispose(): boolean {
+		// This check will guarantee that disposal only happens once, and only one thread is responsible for disposal.
+		if (this.__disposeState.state !== ALIVE) {
+			return false;
+		}
 &nbsp;
-    // Set to DISPOSE_CALLED
-    this.__disposeState.state = DISPOSE_CALLED;
+		// Set to DISPOSE_CALLED
+		this.__disposeState.state = DISPOSE_CALLED;
 &nbsp;
-    try {
-      this._onBeforeDispose();
-    } finally {
-      // Need to assure that 'disposing' was set even though there was an error in the try.
-      // If by chance something internally called 'disposed()' then don't regress backwards.
-      if (this.__disposeState.state === DISPOSE_CALLED) {
-        this.__disposeState.state = DISPOSING;
-      }
-    }
+		try {
+			this._onBeforeDispose();
+		} finally {
+			// Need to assure that 'disposing' was set even though there was an error in the try.
+			// If by chance something internally called 'disposed()' then don't regress backwards.
+			if (this.__disposeState.state === DISPOSE_CALLED) {
+				this.__disposeState.state = DISPOSING;
+			}
+		}
 &nbsp;
-    return true;
-  }
+		return true;
+	}
 &nbsp;
-  /**
+	/**
    * Completes disposal process and executes finalizer.
    * @protected
    */
-  protected _finishDispose(): void {
-    const state = this.__disposeState;
-    const finalizer = state.finalizer;
-    delete state.finalizer;
-    this.__disposeState.state = DISPOSED;
-    Object.freeze(state);
-    if (finalizer) finalizer();
-  }
+	protected _finishDispose(): void {
+		const state = this.__disposeState;
+		const finalizer = state.finalizer;
+		delete state.finalizer;
+		this.__disposeState.state = DISPOSED;
+		Object.freeze(state);
+		if (finalizer) finalizer();
+	}
 }</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -397,7 +397,7 @@ export default abstract class DisposableStateBase
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-08-22T05:45:27.877Z
+                at 2025-08-22T05:46:28.265Z
             </div>
         <script src="prettify.js"></script>
         <script>
