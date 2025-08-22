@@ -2,13 +2,10 @@
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
  */
-import type DisposableAware from './DisposableAware';
-export default abstract class DisposableBase implements DisposableAware {
-    protected _disposableObjectName: string;
-    private readonly __disposableState;
-    protected constructor(disposableObjectName: string, finalizer?: () => void | null);
-    get wasDisposed(): boolean;
+import Disposable from './Disposable';
+import DisposableStateBase from './DisposableStateBase';
+export default abstract class DisposableBase extends DisposableStateBase implements Disposable {
+    protected constructor(finalizer?: () => void | null);
     dispose(): void;
-    protected throwIfDisposed(message?: string, objectName?: string): true | never;
     protected _onDispose(): void;
 }

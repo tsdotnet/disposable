@@ -3,11 +3,11 @@ import { DisposableBase } from '../src/index.js'
 
 class MyDisposable extends DisposableBase {
 	constructor(finalizer?: () => void) {
-		super('MyDisposable', finalizer)
+		super(finalizer)
 	}
 
 	test(): void {
-		this.throwIfDisposed()
+		this.assertIsAlive()
 	}
 }
 

@@ -6,21 +6,21 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const DisposableStateBase_1 = tslib_1.__importDefault(require("./DisposableStateBase"));
-class DisposableBase extends DisposableStateBase_1.default {
+class AsyncDisposableBase extends DisposableStateBase_1.default {
     constructor(finalizer) {
         super(finalizer);
     }
-    dispose() {
+    async disposeAsync() {
         if (!this._startDispose())
             return;
         try {
-            this._onDispose();
+            await this._onDisposeAsync();
         }
         finally {
             this._finishDispose();
         }
     }
-    _onDispose() { }
+    _onDisposeAsync() { return Promise.resolve(); }
 }
-exports.default = DisposableBase;
-//# sourceMappingURL=DisposableBase.js.map
+exports.default = AsyncDisposableBase;
+//# sourceMappingURL=AsyncDisposableBase.js.map
