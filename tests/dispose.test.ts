@@ -86,8 +86,12 @@ describe('dispose', () => {
 		it('should dispose array of objects', () => {
 			const objects = [new MockDisposable(), new MockDisposable()]
 			dispose.these(objects)
-			expect(objects[0].isDisposed).toBe(true)
-			expect(objects[1].isDisposed).toBe(true)
+			const firstObject = objects[0];
+			const secondObject = objects[1];
+			expect(firstObject).toBeDefined();
+			expect(secondObject).toBeDefined();
+			expect(firstObject?.isDisposed).toBe(true)
+			expect(secondObject?.isDisposed).toBe(true)
 		})
 
 		it('should handle empty array', () => {
@@ -111,8 +115,12 @@ describe('dispose', () => {
 		it('should dispose array without copying', () => {
 			const objects = [new MockDisposable(), new MockDisposable()]
 			dispose.these.unsafe(objects)
-			expect(objects[0].isDisposed).toBe(true)
-			expect(objects[1].isDisposed).toBe(true)
+			const firstObject = objects[0];
+			const secondObject = objects[1];
+			expect(firstObject).toBeDefined();
+			expect(secondObject).toBeDefined();
+			expect(firstObject?.isDisposed).toBe(true)
+			expect(secondObject?.isDisposed).toBe(true)
 		})
 	})
 
@@ -135,9 +143,11 @@ describe('dispose', () => {
 			const objects = [new MockDisposable(), new MockDisposable()]
 			dispose.these.deferred(objects)
 			
-			expect(objects[0].isDisposed).toBe(false)
+			const firstObject = objects[0];
+			expect(firstObject).toBeDefined();
+			expect(firstObject?.isDisposed).toBe(false)
 			await new Promise(resolve => setTimeout(resolve, 0))
-			expect(objects[0].isDisposed).toBe(true)
+			expect(firstObject?.isDisposed).toBe(true)
 		})
 
 		it('should schedule disposal with delay', async () => {
@@ -156,7 +166,9 @@ describe('dispose', () => {
 			dispose.these.deferred.unsafe(objects, 5)
 			
 			await new Promise(resolve => setTimeout(resolve, 10))
-			expect(objects[0].isDisposed).toBe(true)
+			const firstObject = objects[0];
+			expect(firstObject).toBeDefined();
+			expect(firstObject?.isDisposed).toBe(true)
 		})
 	})
 })
