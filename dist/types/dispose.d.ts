@@ -2,7 +2,7 @@
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
  */
-import type Disposable from './Disposable';
+import type Disposable from './Disposable.js';
 export type DisposableItem = Disposable | null | undefined;
 export type DisposableItemArray = DisposableItem[] | null | undefined;
 export declare function dispose(...disposables: DisposableItem[]): void;

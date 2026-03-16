@@ -5,8 +5,8 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const DisposableStateBase_1 = tslib_1.__importDefault(require("./DisposableStateBase"));
-class AsyncDisposableBase extends DisposableStateBase_1.default {
+const DisposableStateBase_js_1 = tslib_1.__importDefault(require("./DisposableStateBase.js"));
+class AsyncDisposableBase extends DisposableStateBase_js_1.default {
     constructor(finalizer) {
         super(finalizer);
     }

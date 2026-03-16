@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import type DisposableAware from './DisposableAware';
+import type DisposableAware from './DisposableAware.js';
 
 /**
  * Exception thrown when an operation is performed on a disposed object.

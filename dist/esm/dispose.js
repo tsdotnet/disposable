@@ -71,7 +71,7 @@ function deferredUnsafe(disposables, delay = 0) {
         return;
     setTimeout(theseUnsafe, delay && delay > 0 ? delay : 0, disposables, true);
 }
-var dispose$1 = dispose;
+var dispose_default = dispose;
 
-export { dispose$1 as default, dispose };
+export { dispose_default as default, dispose };
 //# sourceMappingURL=dispose.js.map

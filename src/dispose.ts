@@ -3,7 +3,7 @@
  * @license MIT
  */
 
-import type Disposable from './Disposable';
+import type Disposable from './Disposable.js';
 
 /**
  * Represents a disposable item that can be null or undefined for convenience.

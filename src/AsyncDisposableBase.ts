@@ -3,8 +3,8 @@
  * @license MIT
  */
 
-import AsyncDisposable from './AsyncDisposable';
-import DisposableStateBase from './DisposableStateBase';
+import AsyncDisposable from './AsyncDisposable.js';
+import DisposableStateBase from './DisposableStateBase.js';
 
 export default abstract class AsyncDisposableBase
 	extends DisposableStateBase implements AsyncDisposable {

@@ -3,8 +3,8 @@
  * @license MIT
  */
 
-import Disposable from './Disposable';
-import DisposableStateBase from './DisposableStateBase';
+import Disposable from './Disposable.js';
+import DisposableStateBase from './DisposableStateBase.js';
 
 /**
  * Complete disposable implementation with state tracking and disposal lifecycle.

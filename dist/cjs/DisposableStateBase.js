@@ -5,7 +5,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const ObjectDisposedException_1 = tslib_1.__importDefault(require("./ObjectDisposedException"));
+const ObjectDisposedException_js_1 = tslib_1.__importDefault(require("./ObjectDisposedException.js"));
 const ALIVE = 0;
 const DISPOSE_CALLED = 1;
 const DISPOSING = 2;
@@ -27,7 +27,7 @@ class DisposableStateBase {
     assertIsAlive(strict = false) {
         const state = this.__disposeState.state;
         if (strict ? state !== ALIVE : this.wasDisposed) {
-            throw new ObjectDisposedException_1.default(this.constructor.name);
+            throw new ObjectDisposedException_js_1.default(this.constructor.name);
         }
         return true;
     }

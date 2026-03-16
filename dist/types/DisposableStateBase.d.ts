@@ -2,8 +2,8 @@
  * @author electricessence / https://github.com/electricessence/
  * @license MIT
  */
-import type DisposableAware from './DisposableAware';
-import { type DisposeStateValue } from './DisposeState';
+import type DisposableAware from './DisposableAware.js';
+import { type DisposeStateValue } from './DisposeState.js';
 export default abstract class DisposableStateBase implements DisposableAware {
     private readonly __disposeState;
     protected constructor(finalizer?: () => void | null);

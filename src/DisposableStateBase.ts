@@ -3,9 +3,9 @@
  * @license MIT
  */
 
-import type DisposableAware from './DisposableAware';
-import ObjectDisposedException from './ObjectDisposedException';
-import { DisposeState, type DisposeStateValue } from './DisposeState';
+import type DisposableAware from './DisposableAware.js';
+import ObjectDisposedException from './ObjectDisposedException.js';
+import { DisposeState, type DisposeStateValue } from './DisposeState.js';
 
 const ALIVE = DisposeState.Alive;
 const DISPOSE_CALLED = DisposeState.DisposeCalled;
