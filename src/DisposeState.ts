@@ -64,4 +64,9 @@ export const enum DisposeState
   Disposed = 3
 }
 
-export type DisposeStateValue = typeof DisposeState[keyof typeof DisposeState];
+/**
+ * The numeric value of a DisposeState.
+ * Written as the enum type itself, not `typeof DisposeState[...]`: that form reads the const enum as a value,
+ * which TypeScript rejects (TS2748) in a consumer compiling with isolatedModules on older TypeScript versions.
+ */
+export type DisposeStateValue = DisposeState;

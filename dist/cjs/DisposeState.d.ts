@@ -8,4 +8,4 @@ export declare const enum DisposeState {
     Disposing = 2,
     Disposed = 3
 }
-export type DisposeStateValue = typeof DisposeState[keyof typeof DisposeState];
+export type DisposeStateValue = DisposeState;
