@@ -1,4 +1,4 @@
-<a href="https://tsdotnet.github.io/disposable/"><img src="https://cdn.jsdelivr.net/gh/tsdotnet/disposable@master/assets/banner.svg" alt="@tsdotnet/disposable: Dispose once, safely. For anything that holds resources."></a>
+<a name="banner"><img src="https://cdn.jsdelivr.net/gh/tsdotnet/disposable@master/assets/banner.svg" alt="@tsdotnet/disposable: Dispose once, safely. For anything that holds resources."></a>
 
 [![npm version](https://img.shields.io/npm/v/@tsdotnet/disposable.svg?style=flat-square)](https://www.npmjs.com/package/@tsdotnet/disposable)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/tsdotnet/disposable/blob/master/LICENSE)
