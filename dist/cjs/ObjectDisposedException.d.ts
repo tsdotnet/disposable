@@ -1,0 +1,10 @@
+/*!
+ * @author electricessence / https://github.com/electricessence/
+ * @license MIT
+ */
+import type DisposableAware from './DisposableAware.js';
+export default class ObjectDisposedException extends Error {
+    readonly objectName: string;
+    constructor(objectName: string, message?: string);
+    static throwIfDisposed(disposable: DisposableAware, objectName: string, message?: string): true | never;
+}
